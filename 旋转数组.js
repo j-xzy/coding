@@ -37,4 +37,55 @@ function rotate1(nums, k) {
   }
 }
 
-rotate1([1, 2, 3, 4, 5, 6, 7], 3);
+/**
+ * 思路2
+ * 交换位置
+ * 时间复杂度O(k*n)
+ * 空间复杂度O(1)
+ */
+
+/**
+* @param {number[]} nums
+* @param {number} k
+* @return {void} Do not return anything, modify nums in-place instead.
+*/
+function rotate2(nums, k) {
+  let step = k % nums.length;
+  while (step > 0) {
+    for (let i = nums.length - 1; i > 0; --i) {
+      const temp = nums[i];
+      nums[i] = nums[i - 1];
+      nums[i - 1] = temp;
+    }
+    --step;
+  }
+}
+
+/**
+ * 思路3
+ * 三次旋转
+ * 
+ * 时间复杂度O(n)
+ * 空间复杂度O(1)
+ */
+function rotate3(nums, k) {
+  let step = k % nums.length;
+  if (step > 0) {
+    reverse(nums, 0, nums.length - step - 1);
+    reverse(nums, nums.length - step, nums.length - 1);
+    reverse(nums, 0, nums.length - 1);
+  }
+}
+
+function reverse(nums, start, end) {
+  while (start < end) {
+    const temp = nums[start];
+    nums[start] = nums[end];
+    nums[end] = temp;
+    ++start;
+    --end;
+  }
+}
+
+rotate3([1, 2], 1);
+rotate3([1, 2, 3, 4, 5, 6, 7], 3);
