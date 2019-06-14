@@ -63,7 +63,7 @@ function maxSubArray2(nums) {
 }
 // #endregion
 
-// #region 动态规划
+// #region 动态规划 (O(n))
 // s[i]代表以第i位结尾的最大子序列和，s[i] = max(num[i], s[i-1])
 function maxSubArray3(nums) {
   if (nums.length === 0) {
