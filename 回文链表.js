@@ -38,6 +38,7 @@ function isPalindrome(head) {
   let fast = head;
   let slow = head;
 
+  // 快慢指针找到中间节点
   while (fast && fast.next) {
     fast = fast.next.next;
     slow = slow.next;
@@ -45,6 +46,7 @@ function isPalindrome(head) {
 
   let pre = null;
   let cur = slow;
+  // 从中间开始反转
   while (cur) {
     const next = cur.next;
     cur.next = pre;

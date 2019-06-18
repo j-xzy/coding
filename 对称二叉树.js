@@ -37,7 +37,10 @@ function isMirror(t1, t2) {
  * @return {boolean}
  */
 function isSymmetric2(root) {
-  const queue = [root, root];
+  if (!root) {
+    return true;
+  }
+  const queue = [root.left, root.right];
   while (queue.length > 0) {
     const t1 = queue.shift();
     const t2 = queue.shift();
