@@ -10,8 +10,6 @@
 ]
  */
 
-// [-4, -1, -1, 0, 1, 2]
-
 /**
  * @param {number[]} nums
  * @return {number[][]}
