@@ -54,3 +54,4 @@ var threeSum = function (nums) {
 };
 
 threeSum([-4, -1, -1, 0, 1, 2])
+threeSum([-2,0,0,2,2])
