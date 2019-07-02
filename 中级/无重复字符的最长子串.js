@@ -40,7 +40,7 @@ var lengthOfLongestSubstring1 = function (s) {
     if (!map.has(s[j])) {
       map.set(s[j], 1);
       max = Math.max(max, j - i + 1);
-      ++j
+      ++j;
     } else {
       map.delete(s[i]);
       ++i;

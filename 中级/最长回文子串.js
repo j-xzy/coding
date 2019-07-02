@@ -105,7 +105,7 @@ var longestPalindrome2 = function (s) {
 // #region 中心扩散
 
 // 时间复杂度O(n*n)
-// 空间复杂度O(n*n)
+// 空间复杂度O(1)
 
 // 因为回文串是镜像的，所以选取每个中心向左右扩散
 
@@ -129,7 +129,7 @@ var longestPalindrome3 = function (s) {
     const l = Math.max(l1, l2);
     if (l > end - start + 1) {
       start = i - Math.floor((l - 1) / 2);
-      end = i +  Math.floor(l / 2);
+      end = i + Math.floor(l / 2);
     }
   }
 
@@ -140,7 +140,7 @@ var longestPalindrome3 = function (s) {
 };
 
 function expandAroundCenter(s, start, end) {
-  while(start >= 0 && end < s.length && s[start] === s[end]) {
+  while (start >= 0 && end < s.length && s[start] === s[end]) {
     --start;
     ++end;
   }
