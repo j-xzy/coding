@@ -19,7 +19,7 @@
 // f(6) = min(f(1),f(4),f(5)) + 1
 // f(1) = min(f(0)) + 1;
 
-// #region 自底向上
+// #region 1 自底向上
 
 // f(0) = 0;
 // f(1) = min(f(0)) + 1
@@ -48,7 +48,7 @@ var coinChange = function (coins, amount) {
 
 // #endregion
 
-// #region 自顶向下
+// #region 2 自顶向下
 
 // 减枝
 
@@ -86,7 +86,32 @@ var coinChange2 = function (coins, amount) {
 };
 
 // #endregion
-console.log(coinChange2([2, 5, 10, 1], 27) === 4);
-console.log(coinChange2([1, 2], 3) === 2);
-console.log(coinChange2([1, 2, 5], 9) === 3);
-console.log(coinChange2([2], 3) === -1);
+
+// #region 3 深度优先
+
+/*dfs方法*/
+var coinChange3 = function (coins, amount) {
+  coins.sort((a, b) => a - b);
+  var res = Number.MAX_VALUE;
+  coinExchange(amount, 0, coins.length - 1);
+  return res === Number.MAX_VALUE ? -1 : res;
+
+  function coinExchange(rest, count, index) {
+    if (index < 0 || count + Math.floor(rest / coins[index]) >= res)
+      return;
+    if (rest % coins[index] === 0) {
+      res = Math.min(res, count + rest / coins[index]);
+      return;
+    }
+    for (var i = Math.floor(rest / coins[index]); i >= 0; i--) {
+      coinExchange(rest - coins[index] * i, count + i, index - 1);
+    }
+  }
+};
+
+// #endregion
+
+console.log(coinChange3([2, 5, 10, 1], 27) === 4);
+console.log(coinChange3([1, 2], 3) === 2);
+console.log(coinChange3([1, 2, 5], 9) === 3);
+console.log(coinChange3([2], 3) === -1);
