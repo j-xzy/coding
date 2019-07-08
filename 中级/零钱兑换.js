@@ -89,6 +89,8 @@ var coinChange2 = function (coins, amount) {
 
 // #region 3 深度优先
 
+// 尽量多选最大的
+
 /*dfs方法*/
 var coinChange3 = function (coins, amount) {
   coins.sort((a, b) => a - b);
