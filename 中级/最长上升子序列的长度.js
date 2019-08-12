@@ -76,6 +76,6 @@ var lengthOfLIS = function (nums) {
 
 // #endregion
 console.log(lengthOfLIS([3, 6, 8, 4, 5, 6]) === 4);
-console.log(lengthOfLIS([4, 10, 4, 3, 8, 9]) === 3);
-console.log(lengthOfLIS([10, 9, 2, 5, 3, 4]) === 3);
-console.log(lengthOfLIS([1, 3, 5, 6, 9, 7, 8]) === 6);
+// console.log(lengthOfLIS([4, 10, 4, 3, 8, 9]) === 3);
+// console.log(lengthOfLIS([10, 9, 2, 5, 3, 4]) === 3);
+// console.log(lengthOfLIS([1, 3, 5, 6, 9, 7, 8]) === 6);
