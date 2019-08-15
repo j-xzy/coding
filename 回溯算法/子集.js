@@ -4,23 +4,23 @@
  * 
  * 示例:
  * 输入: nums = [1,2,3]
-输出:
-[
-  [3],
-  [1],
-  [2],
-  [1,2,3],
-  [1,3],
-  [2,3],
-  [1,2],
-  []
-]
+ * 输出:
+ * [
+ *  [3],
+ *  [1],
+ *  [2],
+ *  [1,2,3],
+ *  [1,3],
+ *  [2,3],
+ *  [1,2],
+ *  []
+ * ]
  */
 
 /**
-* @param {number[]} nums
-* @return {number[][]}
-*/
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
 var subsets = function (nums) {
   if (nums.length === 0) {
     return [];
@@ -44,22 +44,3 @@ var subsets = function (nums) {
     result.push([num]);
   }
 };
-
-// 位掩码
-subsets = function (nums) {
-  const size = nums.length;
-  const list = [];
-  for (let i = 0; i < (1 << size); ++i) {
-    const ax = [];
-    for (let j = 0; j < size; j++) {
-      if ((i & (1 << j)) != 0) {
-        ax.push(nums[j]);
-      }
-    }
-    list.push(ax);
-  }
-
-  return list;
-}
-
-subsets([1, 2]);
