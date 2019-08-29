@@ -64,3 +64,5 @@ function generate(start, end) {
 
   return ans;
 }
+
+generateTrees(3);
