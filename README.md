@@ -12,6 +12,7 @@
 10. [数组](https://github.com/whj1995/coding/tree/master/数组)
 11. [字符串](https://github.com/whj1995/coding/tree/master/字符串)
 12. [股票问题](https://github.com/whj1995/coding/tree/master/股票问题)
+13. [贪心](https://github.com/whj1995/coding/tree/master/贪心)
 
 # 精品解析
 
