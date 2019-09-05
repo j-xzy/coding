@@ -24,7 +24,7 @@
  * 输出：4
  */
 
-// 暴力dp 复杂度O(K*N*N)
+// 暴力记忆dp 复杂度O(K*N*N)
 //  f(k,n) = min(1<=x<=n)(max(f(k-1, x - 1),f(k, n - x)))
 // x为扔的楼层，碎了 ? 鸡蛋数量减一，楼层数量为x-1 : 鸡蛋数量不变，楼层数量为n-x
 // 因为是最差情况，所以得取以上两种情况的最大值
@@ -53,7 +53,6 @@ var superEggDrop = function (K, N) {
     for (let i = 1; i <= n; ++i) {
       // 从i楼扔，如果碎了需要多少步、不碎需要多少步，取其最大值 步数加一
       const max = Math.max(dp(k - 1, i - 1), dp(k, n - i)) + 1;
-
       // 取最小值
       min = Math.min(min, max);
     }
@@ -64,6 +63,35 @@ var superEggDrop = function (K, N) {
   function stamp(k, n) {
     return k + '#' + n;
   }
+};
+
+// 自底向上dp O(K*N*N)
+/**
+ * @param {number} K
+ * @param {number} N
+ * @return {number}
+ */
+var superEggDrop = function (K, N) {
+  if (K <= 1 || N <= 1) {
+    return N;
+  }
+  const dp = [[], []];
+  for (let n = 0; n <= N; ++n) {
+    dp[1][n] = n;
+  }
+  for (let k = 2; k <= K; ++k) {
+    dp.push([0, 1]);
+  }
+  for (let n = 2; n <= N; ++n) {
+    for (let k = 2; k <= K; ++k) {
+      let min = Infinity;
+      for (let i = 1; i <= n; ++i) {
+        min = Math.min(min, 1 + Math.max(dp[k - 1][i - 1], dp[k][n - i]));
+      }
+      dp[k][n] = min;
+    }
+  }
+  return dp[K][N];
 };
 
 
