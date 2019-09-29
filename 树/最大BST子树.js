@@ -19,6 +19,54 @@
 你能想出用 O(n) 的时间复杂度解决这个问题吗？
  */
 
+// 自底向上
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var largestBSTSubtree = function (root) {
+  if (!root) {
+    return 0;
+  }
+  let ans = 1;
+  subtree(root);
+
+  return ans;
+
+  function subtree(node) {
+    if (!node) {
+      return { count: 0, min: Infinity, max: -Infinity };
+    }
+    let left = subtree(node.left);
+    let right = subtree(node.right);
+    if (left.count === -1 || right.count === -1) {
+      return { count: -1 };
+    }
+    if (left.max >= node.val || right.min <= node.val) {
+      // 当前节点小于左侧最大节点 或 大于右侧最小节点
+      return { count: -1 };
+    }
+
+    // 以当前节点为根的最大最小值,如果为叶子节点,值为本身
+    const max = right.max === -Infinity ? node.val : right.max;
+    const min = left.min === Infinity ? node.val : left.min;
+    
+    // 左侧节点个数+右侧节点个数+本节点1 
+    const count = left.count + right.count + 1;
+
+    // 计算最大值
+    ans = Math.max(ans, count);
+    return { count, min, max };
+  }
+}
 
 // 遍历每个节点。 复杂度n*n
 /**
