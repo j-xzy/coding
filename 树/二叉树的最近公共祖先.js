@@ -89,12 +89,16 @@ var lowestCommonAncestor = function (root, p, q) {
  */
 var lowestCommonAncestor = function (root, p, q) {
   if (!root || p == root || q === root) {
+    // 节点为空或此节点为p或q
     return root;
   }
   const left = lowestCommonAncestor(root.left, p, q);
   const right = lowestCommonAncestor(root.right, p, q);
+
   if (left && right) {
+    //左右节点都找了，此节点为根节点
     return root;
   }
+  // 返回空或找的的那个节点
   return left ? left : right;
 }
