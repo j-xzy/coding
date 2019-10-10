@@ -14,6 +14,7 @@
 12. [股票问题](https://github.com/whj1995/coding/tree/master/股票问题)
 13. [贪心](https://github.com/whj1995/coding/tree/master/贪心)
 14. [哈希表](https://github.com/whj1995/coding/tree/master/哈希表)
+15. [设计](https://github.com/whj1995/coding/tree/master/设计)
 
 # 精品解析
 
