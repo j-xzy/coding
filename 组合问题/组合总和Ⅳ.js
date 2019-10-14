@@ -45,5 +45,3 @@ var combinationSum4 = function (nums, target) {
   memo[target] = count;
   return count;
 };
-
-console.log(combinationSum4([9], 3))
