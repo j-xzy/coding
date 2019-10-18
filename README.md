@@ -17,6 +17,7 @@
 15. [设计](https://github.com/whj1995/coding/tree/master/设计)
 16. [排列组合](https://github.com/whj1995/coding/tree/master/排列组合)
 17. [并查集](https://github.com/whj1995/coding/tree/master/并查集)
+18. [数学](https://github.com/whj1995/coding/tree/master/数学)
 
 # 精品解析
 
