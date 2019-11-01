@@ -35,11 +35,10 @@ class UnionFind {
   }
 
   find(node) {
-    while (this.parents[node] !== node) {
-      this.parents[node] = this.parents[this.parents[node]];
-      node = this.parents[node];
+    if (this.parents[node] !== node) {
+      this.parents[node] = this.find(this.parents[node]);
     }
-    return node;
+    return this.parents[node];
   }
 
   isConnected(node1, node2) {
