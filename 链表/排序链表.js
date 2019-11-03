@@ -55,19 +55,3 @@ var sortList = function (head) {
   h.next = p1 ? p1 : p2;
   return dummy.next;
 };
-
-function ListNode(val) {
-  this.val = val;
-  this.next = null;
-}
-
-let p1 = new ListNode(4);
-let p2 = new ListNode(2);
-let p3 = new ListNode(1);
-let p4 = new ListNode(3);
-
-p1.next = p2;
-p2.next = p3;
-p3.next = p4;
-
-sortList(p1);
