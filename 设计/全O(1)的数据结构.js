@@ -95,7 +95,10 @@ AllOne.prototype.getMaxKey = function () {
     return '';
   }
   const tail = this.list.getTail();
-  return Object.keys(tail.keys)[0];
+  for (let k in tail.keys) {
+    return k;
+  }
+  return ''
 };
 
 /**
@@ -107,7 +110,10 @@ AllOne.prototype.getMinKey = function () {
     return '';
   }
   const head = this.list.getHead();
-  return Object.keys(head.keys)[0];
+  for (let k in head.keys) {
+    return k;
+  }
+  return ''
 };
 
 AllOne.prototype.clearNode = function (node) {
