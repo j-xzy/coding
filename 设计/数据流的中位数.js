@@ -21,11 +21,15 @@ findMedian() -> 2
 如果数据流中 99% 的整数都在 0 到 100 范围内，你将如何优化你的算法？
  */
 
+const { HeapMin, HeapMax } = require('./堆');
+
+// 大小堆解决
 /**
  * initialize your data structure here.
  */
 var MedianFinder = function () {
-  this.nums = [];
+  this.lo = new HeapMax();
+  this.hi = new HeapMin();
 };
 
 /** 
@@ -33,21 +37,21 @@ var MedianFinder = function () {
  * @return {void}
  */
 MedianFinder.prototype.addNum = function (num) {
-  this.nums.push(num);
-  this.nums.sort((a, b) => a - b);
+  this.lo.push(num);
+  this.hi.push(this.lo.pop());
+  if (this.hi.size() > this.lo.size()) {
+    this.lo.push(this.hi.pop());
+  }
 };
 
 /**
  * @return {number}
  */
 MedianFinder.prototype.findMedian = function () {
-  const size = this.nums.length;
-  if (size % 2 === 0) {
-    const n1 = size / 2;
-    return (this.nums[n1] + this.nums[n1 - 1]) / 2
-  } else {
-    return this.nums[Math.floor(size / 2)];
+  if (this.lo.size() === this.hi.size()) {
+    return (this.lo.top() + this.hi.top()) / 2;
   }
+  return this.lo.top();
 };
 
 /**
@@ -56,9 +60,3 @@ MedianFinder.prototype.findMedian = function () {
  * obj.addNum(num)
  * var param_2 = obj.findMedian()
  */
-
-var obj = new MedianFinder()
-obj.addNum(1)
-obj.addNum(2)
-// obj.addNum(3)
-obj.findMedian();
