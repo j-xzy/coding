@@ -57,16 +57,16 @@ var kthSmallest = function (matrix, k) {
  */
 var kthSmallest = function (matrix, k) {
   const len = matrix.length;
-  const heap = matrix.map((nums, col) => ({ val: nums[0], col, row: 0 }));
+  const heap = matrix.map((nums, row) => ({ val: nums[0], row, col: 0 }));
   for (let i = Math.floor(len / 2) - 1; i >= 0; --i) {
     heapifyMin(heap, i);
   }
   let ans = heap[0].val;
   for (let i = 1; i < k; ++i) {
     heap[0] = {
-      val: heap[0].row + 1 >= len ? Infinity : matrix[heap[0].col][heap[0].row + 1],
-      col: heap[0].col,
-      row: heap[0].row + 1
+      val: heap[0].col + 1 >= len ? Infinity : matrix[heap[0].row][heap[0].col + 1],
+      col: heap[0].col + 1,
+      row: heap[0].row
     };
     heapifyMin(heap, 0);
     ans = heap[0].val;
