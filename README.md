@@ -19,6 +19,7 @@
 17. [并查集](https://github.com/whj1995/coding/tree/master/并查集)
 18. [数学](https://github.com/whj1995/coding/tree/master/数学)
 19. [dfs&bfs](https://github.com/whj1995/coding/tree/master/dfs&bfs)
+20. [其它](https://github.com/whj1995/coding/tree/master/其它)
 
 # 精品解析
 
