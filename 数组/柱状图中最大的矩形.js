@@ -14,6 +14,28 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
+// 单调栈
+/**
+ * @param {number[]} heights
+ * @return {number}
+ */
+var largestRectangleArea = function (heights) {
+  const stack = [-1];
+  let ans = 0;
+  for (let i = 0; i < heights.length; ++i) {
+    while (stack[stack.length - 1] !== -1 && heights[stack[stack.length - 1]] > heights[i]) {
+      const area = heights[stack.pop()] * (i - stack[stack.length - 1] - 1);
+      ans = Math.max(ans, area);
+    }
+    stack.push(i);
+  }
+  while (stack.length > 1) {
+    const area = heights[stack.pop()]  * (heights.length - stack[stack.length - 1] - 1);
+    ans = Math.max(ans, area);
+  }
+  return ans;
+};
+
 /**
  * @param {number[]} heights
  * @return {number}
@@ -29,5 +51,3 @@ var largestRectangleArea = function (heights) {
   }
   return ans;
 };
-
-largestRectangleArea([2, 1, 5, 6, 2, 3]);

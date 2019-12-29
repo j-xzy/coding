@@ -12,9 +12,9 @@
 输出: 6
  */
 
-// 题解：ttps://leetcode-cn.com/problems/maximal-rectangle/solution/zui-da-ju-xing-by-leetcode/ 
+// 题解：https://leetcode-cn.com/problems/maximal-rectangle/solution/zui-da-ju-xing-by-leetcode/ 
 
-// 思路：dp柱状图,方法2
+// 思路：方法2
 /**
  * @param {character[][]} matrix
  * @return {number}
@@ -48,10 +48,3 @@ var maximalRectangle = function (matrix) {
   }
   return ans;
 };
-
-maximalRectangle([
-  ["1", "0", "1", "0", "0"],
-  ["1", "0", "1", "1", "1"],
-  ["1", "1", "1", "1", "1"],
-  ["1", "0", "0", "1", "0"]
-])
